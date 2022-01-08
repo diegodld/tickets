@@ -13,7 +13,26 @@ function apagar(id) {
   }
 }
 
-function edit(id) {}
+function edit(id) {
+  $("#ModalRegistro").modal("show");
+
+  dados.forEach(function (item) {
+    if (item.ID == id) {
+      $("#hdID").val(item.ID);
+      $("#txtCliente").val(item.Cliente);
+      $("txtTitulo").val(item.Titulo);
+      $("#txtdescricao").val(item.Descricao);
+      $("#txtdata").val(
+        item.Data.substr(6, 4) +
+          "-" +
+          item.Data.substr(3, 2) +
+          "-" +
+          item.Data.substr(0, 2)
+      );
+      $("#txttecnico").val(item.Tecnico);
+    }
+  });
+}
 
 function PopulaTabela() {
   if (Array.isArray(dados)) {
@@ -29,8 +48,8 @@ function PopulaTabela() {
         <td>${item.Descricao}</td>
         <td>${item.Data}</td>
         <td>${item.Tecnico}</td>
-        <td> <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button></td>
-        <td> <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+        <td> <button type="button" class="btn btn-primary" onclick="javascript:edit(${item.ID});"><i class="fa fa-edit"></i></button></td>
+        <td> <button type="button" class="btn btn-danger" onclick="javascript:apagar(${item.ID});"><i class="fa fa-trash"></i></button></td>
         </tr>`);
     });
   }
@@ -43,7 +62,7 @@ $(function () {
   }
   $("#btnSalvar").on("click", function () {
     //Salvar
-
+    let _id = $("#hdID").val();
     let Cliente = $("#txtCliente").val();
     let Titulo = $("#txtTitulo").val();
     let Descricao = $("#txtdescricao").val();
@@ -52,19 +71,33 @@ $(function () {
     });
     let Tecnico = $("#txttecnico").val();
 
-    let ticket = {};
-    ticket.Cliente = Cliente;
-    ticket.Titulo = Titulo;
-    ticket.Descricao = Descricao;
-    ticket.Data = Data;
-    ticket.Tecnico = Tecnico;
-    ticket.ID = dados.length + 1;
+    if (!_id || _id == "0") {
+      let ticket = {};
+      ticket.Cliente = Cliente;
+      ticket.Titulo = Titulo;
+      ticket.Descricao = Descricao;
+      ticket.Data = Data;
+      ticket.Tecnico = Tecnico;
 
-    dados.push(ticket);
+      ticket.ID = dados.length + 1;
+      dados.push(ticket);
+    } else {
+      dados.forEach(function (item) {
+        if (item.ID == _id) {
+          item.Cliente = Cliente;
+          item.Titulo = Titulo;
+          item.Descricao = Descricao;
+          item.Data = Data;
+          item.Tecnico = Tecnico;
+        }
+      });
+    }
 
     alert("Ticket cadastrado com sucesso!");
     $("#ModalRegistro").modal("hide");
 
+    //Limpeza dos Campos
+    $("#hdID").val("0");
     $("#txtCliente").val("");
     $("#txtTitulo").val("");
     $("#txtdescricao").val("");
