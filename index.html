@@ -23,14 +23,14 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#ModalRegistro">Adicionar ticket</button>
+                    <button type="button" id="btadd" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#ModalRegistro">Adicionar ticket</button>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="TblDados" class="table table-hover">
+                        <table id="TblDados" class="table table-hover table-dark table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Titulo</th>
                                     <th scope="col">Descrição</th>
@@ -89,9 +89,17 @@
                                     <input id="txtdata" type="date" class="form-control">
                                 </div>
                             </div>
+                            <div class="row">
+                                <label for="">Técnico</label>
+                                <select  id="tecnicos" onchange="update()">
+                                    <option value="null" selected>Selecione</option>
+                                    <option value="DL">Diego Lopes</option>
+                                    <option value="VM">Vitor Matos</option>
+                                </select>
+                            </div>
                             <div class="col" style="min-width: 490px">
                                 <div class="form-group">
-                                    <label for="">Técnico</label>
+                                    
                                     <input id="txttecnico" type="text" class="form-control" placeholder="Responsável pelo atendimento..">
                                 </div>
                             </div>

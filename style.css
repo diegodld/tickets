@@ -30,3 +30,27 @@
     margin-bottom: 20px;
     margin-top: 10px;
 }
+
+select{
+    margin-left: 12px;
+    margin-bottom: 10px;
+
+}
+
+#btadd{
+    margin: 10px;
+    position: relative;
+}
+
+h3{
+    color: rgb(255, 255, 255);
+    
+}
+
+table{
+    width: 100%;
+}
+
+body{
+    background-color: rgba(36, 36, 36, 0.918);
+}

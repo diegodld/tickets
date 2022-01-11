@@ -1,3 +1,4 @@
+
 var dados = [];
 
 function apagar(id) {
@@ -54,15 +55,21 @@ function PopulaTabela() {
     });
   }
 }
+function update() {
+  var select = document.getElementById('tecnicos');
+  var option = select.options[select.selectedIndex];
+
+  
+  document.getElementById('txttecnico').value = option.text;
+  console.log(option.text)
+}
 
 $(function () {
   dados = JSON.parse(localStorage.getItem("__dados__"));
 
   if (dados != null) {
     PopulaTabela();
-  } else {
-    dados = [];
-  }
+  } else {dados = []}
   $("#btnSalvar").on("click", function () {
     //Salvar
     let _id = $("#hdID").val();
@@ -72,6 +79,7 @@ $(function () {
     let Data = new Date($("#txtdata").val()).toLocaleDateString("pt-br", {
       timeZone: "UTC",
     });
+    
     let Tecnico = $("#txttecnico").val();
 
     if (!_id || _id == "0") {
@@ -111,3 +119,4 @@ $(function () {
     PopulaTabela();
   });
 });
+
