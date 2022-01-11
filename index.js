@@ -57,8 +57,11 @@ function PopulaTabela() {
 
 $(function () {
   dados = JSON.parse(localStorage.getItem("__dados__"));
-  if (dados) {
+
+  if (dados != null) {
     PopulaTabela();
+  } else {
+    dados = [];
   }
   $("#btnSalvar").on("click", function () {
     //Salvar
