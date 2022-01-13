@@ -49,7 +49,7 @@ function PopulaTabela() {
         <td>${item.Descricao}</td>
         <td>${item.Data}</td>
         <td>${item.Tecnico}</td>
-        <td> <button type="button" class="btn btn-primary" onclick="javascript:edit(${item.ID});"><i class="fa fa-edit"></i></button></td>
+        <td> <button type="button" id="bt_edit" class="btn " onclick="javascript:edit(${item.ID});"><i class="fa fa-edit"></i></button></td>
         <td> <button type="button" class="btn btn-danger" onclick="javascript:apagar(${item.ID});"><i class="fa fa-trash"></i></button></td>
         </tr>`);
     });

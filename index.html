@@ -11,23 +11,37 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/fontawesome.min.css">
-  
-     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khand&family=Yuji+Boku&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
+<header class="cabecalho">
+    <div id="title"> 
+        
+        <h3><span style="color: rgb(33, 110, 141);" >..</span> Tickets de Atendimento
+            <a href="https://www.mvsmart.com.br/" target="_blank"><img id="logo" src="logo.jpg" alt="Mv Smart"> </a>
+        </h3>
+        
+    
+    </div>
+        
+  
+</header>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h3>Tickets de Atendimento</h3>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" id="btadd" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#ModalRegistro">Adicionar ticket</button>
+                    <button type="button" id="btadd" class="btn float-right" data-bs-toggle="modal" data-bs-target="#ModalRegistro">Adicionar ticket</button>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="TblDados" class="table table-hover table-dark table-striped">
+                        <table id="TblDados" class="table table-hover table-dark table-striped ">
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
@@ -117,7 +131,7 @@
             </div>
         </div>
     </div>
-
+<footer><p> MV Smart - Suporte 2022</p></footer>
 
 
 
